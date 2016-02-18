@@ -1,6 +1,7 @@
 package com.summa_tech.apprentice;
 
 import java.util.Scanner;
+import static java.lang.System.out;
 
 /**
  * @author Justin Chilleo
@@ -26,6 +27,7 @@ public class InputBox {
 	 */
 	private void gatherInput(){
 		
+		out.println("Enter in a bowling game score card.");
 		Scanner input = new Scanner(System.in);
 		inputData = input.nextLine();
 		input.close();
@@ -39,7 +41,7 @@ public class InputBox {
 		String[] values = inputData.replaceAll("\\s+","").replaceAll("\\[", "").replaceAll("\\]", "").split(",");
 		rolls = new byte[values.length];
 		
-		for(byte i = 0; i <= values.length; i++){
+		for(byte i = 0; i < values.length; i++){
 			rolls[i] = Byte.parseByte(values[i]);
 		}
 	}
@@ -49,8 +51,8 @@ public class InputBox {
 	 */
 	private void addToBoard(){
 		byte frameNumber = 0;
-		for(byte j = 0; j <= rolls.length; j+=2){
-			if(rolls.length == 20 && j == 18){
+		for(byte j = 0; j < rolls.length; j+=2){
+			if(rolls.length == 21 && j == 18){
 				Main.gameBoard.put(++frameNumber, new GameFrame(rolls[j],rolls[j+1],rolls[j+2]));
 			}
 			Main.gameBoard.put(++frameNumber, new GameFrame(rolls[j],rolls[j+1]));

@@ -14,6 +14,8 @@ public class Main {
 	
 	static HashMap<Byte, GameFrame> gameBoard = new HashMap<Byte, GameFrame>();
 	public static void main(String[] args) {
+		InputBox ib = new InputBox();
+		ib.begin();
 		
 
 	}
