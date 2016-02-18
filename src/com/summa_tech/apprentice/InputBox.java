@@ -51,11 +51,33 @@ public class InputBox {
 	 */
 	private void addToBoard(){
 		byte frameNumber = 0;
+		char bonus;
 		for(byte j = 0; j < rolls.length; j+=2){
-			if(rolls.length == 21 && j == 18){
-				Main.gameBoard.put(++frameNumber, new GameFrame(rolls[j],rolls[j+1],rolls[j+2]));
+			if(frameNumber == 9 && (rolls.length - j)>1){
+				if(rolls[j] == 10){
+					bonus = 'X';
+				}
+				else{
+					bonus = 'S';
+				}
+				out.println(rolls[j] + ", " + rolls[j+1] + ", " + rolls[j+2]);
+				Main.gameBoard.put(++frameNumber, new GameFrame(rolls[j],rolls[j+1],rolls[j+2],bonus));
+				j = (byte) rolls.length;
 			}
-			Main.gameBoard.put(++frameNumber, new GameFrame(rolls[j],rolls[j+1]));
+			else if(rolls[j] == 10){
+				bonus = 'X';
+				out.println(rolls[j]);
+				Main.gameBoard.put(++frameNumber, new GameFrame(rolls[j--],bonus));
+			}
+			else if(rolls[j] + rolls[j+1] == 10){
+				bonus = 'S';
+			Main.gameBoard.put(++frameNumber, new GameFrame(rolls[j],rolls[j+1], bonus));
+			out.println(rolls[j] + ", " + rolls[j+1]);
+			}
+			else{
+				out.println(rolls[j] + ", " + rolls[j+1]);
+				Main.gameBoard.put(++frameNumber, new GameFrame(rolls[j],rolls[j+1]));
+			}
 		}
 	}
 

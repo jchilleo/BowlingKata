@@ -43,11 +43,34 @@ public class GameFrame {
 	 * @param firstRoll - value for first roll in frame.
 	 * @param secondRoll - value for second roll in frame.
 	 * @param thirdRoll - value for third roll in frame.
+	 * @param bonus - value for bonus slot.
 	 */
-	public GameFrame(byte firstRoll, byte secondRoll, byte thirdRoll){
+	public GameFrame(byte firstRoll, byte secondRoll, byte thirdRoll, char bonus){
 		this.firstRoll = firstRoll;
 		this.secondRoll = secondRoll;
 		this.thirdRoll = thirdRoll;
+		this.bonus = bonus;
+	}
+	
+	/**
+	 * Constructor for frame with an strike.
+	 * @param firstRoll
+	 */
+	public GameFrame(byte firstRoll, char bonus){
+		this.firstRoll = firstRoll;
+		this.bonus = bonus;
+	}
+	
+	/**
+	 * constructor for a frame with a spare
+	 * @param firstRoll
+	 * @param secondRoll
+	 * @param bonus
+	 */
+	public GameFrame(byte firstRoll, byte secondRoll, char bonus){
+		this.firstRoll = firstRoll;
+		this.secondRoll = secondRoll;
+		this.bonus = bonus;
 	}
 	
 	/**
