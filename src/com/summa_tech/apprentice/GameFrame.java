@@ -33,7 +33,7 @@ public class GameFrame {
 	 * @param firstRoll - value for first roll in frame.
 	 * @param secondRoll - value for second roll in frame.
 	 */
-	public void GameFrame(byte firstRoll, byte secondRoll){
+	public GameFrame(byte firstRoll, byte secondRoll){
 		this.firstRoll = firstRoll;
 		this.secondRoll = secondRoll;
 	}
@@ -44,7 +44,7 @@ public class GameFrame {
 	 * @param secondRoll - value for second roll in frame.
 	 * @param thirdRoll - value for third roll in frame.
 	 */
-	public void GameFrame(byte firstRoll, byte secondRoll, byte thirdRoll){
+	public GameFrame(byte firstRoll, byte secondRoll, byte thirdRoll){
 		this.firstRoll = firstRoll;
 		this.secondRoll = secondRoll;
 		this.thirdRoll = thirdRoll;
