@@ -1,7 +1,7 @@
 package com.summa_tech.apprentice;
 
 import java.util.HashMap;
-
+import static java.lang.System.out;
 /**
  * 
  * @author Justin Chilleo
@@ -16,8 +16,17 @@ public class Main {
 	public static void main(String[] args) {
 		InputBox ib = new InputBox();
 		ib.begin();
-		
+		EvaluateScore es = new EvaluateScore();
+		es.beginEvaluation();
+		printGameData();
 
+	}
+	
+	private static void printGameData(){
+		for(byte i = 1; i<11; i++){
+		GameFrame gf = gameBoard.get(i);
+		out.println(gf.getCurrentTotal());
+		}
 	}
 
 }
