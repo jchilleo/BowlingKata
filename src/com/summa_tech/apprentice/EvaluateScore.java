@@ -50,6 +50,10 @@ public class EvaluateScore {
 				gf.setCurrentTotal(currentTotal);
 			}
 		}
+		PrintScreen ps = new PrintScreen();
+		ps.beginPrint(2);
+		ps.beginPrint(3);
+		ps.beginPrint(4);
 	}
 	
 	/**

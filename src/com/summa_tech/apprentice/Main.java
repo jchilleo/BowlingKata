@@ -15,18 +15,10 @@ public class Main {
 	static HashMap<Byte, GameFrame> gameBoard = new HashMap<Byte, GameFrame>();
 	public static void main(String[] args) {
 		InputBox ib = new InputBox();
-		ib.begin();
+			ib.begin();
 		EvaluateScore es = new EvaluateScore();
-		es.beginEvaluation();
-		printGameData();
+			es.beginEvaluation();
 
-	}
-	
-	private static void printGameData(){
-		for(byte i = 1; i<11; i++){
-		GameFrame gf = gameBoard.get(i);
-		out.println(gf.getCurrentTotal());
-		}
 	}
 
 }

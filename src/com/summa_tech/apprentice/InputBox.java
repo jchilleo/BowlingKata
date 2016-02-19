@@ -31,6 +31,8 @@ public class InputBox {
 		Scanner input = new Scanner(System.in);
 		inputData = input.nextLine();
 		input.close();
+		PrintScreen ps = new PrintScreen();
+			ps.beginPrint(0);
 	}
 	
 	/**
@@ -80,6 +82,8 @@ public class InputBox {
 				Main.gameBoard.put(++frameNumber, new GameFrame(rolls[j],rolls[j+1]));
 			}
 		}
+		PrintScreen ps = new PrintScreen();
+		ps.beginPrint(1);
 	}
 
 }
