@@ -51,9 +51,9 @@ public class InputBox {
 	 */
 	private void addToBoard(){
 		byte frameNumber = 0;
-		char bonus;
+		char bonus = 'N';
 		for(byte j = 0; j < rolls.length; j+=2){
-			if(frameNumber == 9 && (rolls.length - j)>1){
+			if(frameNumber == 9 && (rolls.length - j)>2){
 				if(rolls[j] == 10){
 					bonus = 'X';
 				}
