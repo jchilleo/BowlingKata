@@ -1,13 +1,26 @@
 package com.summa_tech.apprentice;
 
+/**
+ * @author Justin Chilleo
+ * This class will take the frame rolls, and the bonus indicators to determine the totals for each frame and the entire game.
+ * Currently finds the frame total before bonuses, with bonuses, and total score at the current frame.
+ */
 public class EvaluateScore {
 	
 	private GameFrame gf;
+	
+	/**
+	 * access method
+	 */
 	public void beginEvaluation(){
-		getFramePBTotals();
+		getFrameTotals();
 	}
 	
-	private void getFramePBTotals(){
+	/**
+	 * this method will find the totals for the frames.
+	 * Using their recorded values for each roll and any bonuses.
+	 */
+	private void getFrameTotals(){
 		byte totalPreBonus, totalWithBonus;
 		short currentTotal = 0;
 		for (byte frameNumber = 1; frameNumber < 11; frameNumber++){
@@ -39,6 +52,12 @@ public class EvaluateScore {
 		}
 	}
 	
+	/**
+	 * If a frame had a bonus indicator this method will get the additional values to add to the frame score.
+	 * @param frameNumber - frame with the bonus.
+	 * @param bonus - what type of bonus.
+	 * @return - returns the bonus value that needs to be added to the combined roll score.
+	 */
 	private byte getBonus(byte frameNumber, char bonus){
 		GameFrame bonusGF = Main.gameBoard.get(++frameNumber);
 		if(bonus =='X'){

@@ -47,7 +47,8 @@ public class InputBox {
 	}
 	
 	/**
-	 * takes the values from the byte array and adds them to the game board, for later processing.
+	 * takes the values from the byte array and adds them to the game board, in addition this will also determine
+	 * if there is any bonus values that need to be added.
 	 */
 	private void addToBoard(){
 		byte frameNumber = 0;
@@ -60,22 +61,22 @@ public class InputBox {
 				else{
 					bonus = 'S';
 				}
-				out.println(rolls[j] + ", " + rolls[j+1] + ", " + rolls[j+2]);
+				//out.println(rolls[j] + ", " + rolls[j+1] + ", " + rolls[j+2]);
 				Main.gameBoard.put(++frameNumber, new GameFrame(rolls[j],rolls[j+1],rolls[j+2],bonus));
 				j = (byte) rolls.length;
 			}
 			else if(rolls[j] == 10){
 				bonus = 'X';
-				out.println(rolls[j]);
+				//out.println(rolls[j]);
 				Main.gameBoard.put(++frameNumber, new GameFrame(rolls[j--],bonus));
 			}
 			else if(rolls[j] + rolls[j+1] == 10){
 				bonus = 'S';
 			Main.gameBoard.put(++frameNumber, new GameFrame(rolls[j],rolls[j+1], bonus));
-			out.println(rolls[j] + ", " + rolls[j+1]);
+			//out.println(rolls[j] + ", " + rolls[j+1]);
 			}
 			else{
-				out.println(rolls[j] + ", " + rolls[j+1]);
+				//out.println(rolls[j] + ", " + rolls[j+1]);
 				Main.gameBoard.put(++frameNumber, new GameFrame(rolls[j],rolls[j+1]));
 			}
 		}
