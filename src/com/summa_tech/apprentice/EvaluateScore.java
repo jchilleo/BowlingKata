@@ -7,7 +7,7 @@ package com.summa_tech.apprentice;
  */
 public class EvaluateScore {
 	
-	private GameFrame gf;
+	private GameFrame gameFrame;
 	
 	/**
 	 * access method
@@ -24,30 +24,30 @@ public class EvaluateScore {
 		byte totalPreBonus, totalWithBonus;
 		short currentTotal = 0;
 		for (byte frameNumber = 1; frameNumber < 11; frameNumber++){
-			gf = Main.gameBoard.get(frameNumber);
-			if(frameNumber == 10 && (gf.getBonus()=='X' || gf.getBonus()=='S')){
-				totalPreBonus = (byte) ((gf.getFirstRoll() + gf.getSecondRoll()) + gf.getThirdRoll());
-				gf.setFramePBTotal(totalPreBonus);
+			gameFrame = Main.gameBoard.get(frameNumber);
+			if(frameNumber == 10 && (gameFrame.getBonus()=='X' || gameFrame.getBonus()=='S')){
+				totalPreBonus = (byte) ((gameFrame.getFirstRoll() + gameFrame.getSecondRoll()) + gameFrame.getThirdRoll());
+				gameFrame.setFramePBTotal(totalPreBonus);
 				totalWithBonus = totalPreBonus;
-				gf.setFrameTotal(totalWithBonus);
+				gameFrame.setFrameTotal(totalWithBonus);
 				currentTotal = (short) (currentTotal + totalWithBonus);
-				gf.setCurrentTotal(currentTotal);
+				gameFrame.setCurrentTotal(currentTotal);
 			}
-			else if(gf.getBonus() == 'X' || gf.getBonus() == 'S'){
+			else if(gameFrame.getBonus() == 'X' || gameFrame.getBonus() == 'S'){
 				totalPreBonus = 10;
-				gf.setFramePBTotal(totalPreBonus);
-				totalWithBonus = (byte) (totalPreBonus + getBonus(frameNumber, gf.getBonus()));
-				gf.setFrameTotal(totalWithBonus);
+				gameFrame.setFramePBTotal(totalPreBonus);
+				totalWithBonus = (byte) (totalPreBonus + getBonus(frameNumber, gameFrame.getBonus()));
+				gameFrame.setFrameTotal(totalWithBonus);
 				currentTotal = (short) (currentTotal + totalWithBonus);
-				gf.setCurrentTotal(currentTotal);
+				gameFrame.setCurrentTotal(currentTotal);
 			}
 			else{
-				totalPreBonus = (byte) (gf.getFirstRoll() + gf.getSecondRoll());
-				gf.setFramePBTotal(totalPreBonus);
+				totalPreBonus = (byte) (gameFrame.getFirstRoll() + gameFrame.getSecondRoll());
+				gameFrame.setFramePBTotal(totalPreBonus);
 				totalWithBonus = totalPreBonus;
-				gf.setFrameTotal(totalWithBonus);
+				gameFrame.setFrameTotal(totalWithBonus);
 				currentTotal = (short) (currentTotal + totalWithBonus);
-				gf.setCurrentTotal(currentTotal);
+				gameFrame.setCurrentTotal(currentTotal);
 			}
 		}
 		PrintScreen ps = new PrintScreen();
@@ -63,20 +63,20 @@ public class EvaluateScore {
 	 * @return - returns the bonus value that needs to be added to the combined roll score.
 	 */
 	private byte getBonus(byte frameNumber, char bonus){
-		GameFrame bonusGF = Main.gameBoard.get(++frameNumber);
+		GameFrame bonusGameFrame = Main.gameBoard.get(++frameNumber);
 		if(bonus =='X'){
-			if(frameNumber == 10 && bonusGF.getFirstRoll() == 10){
-				return (byte) (bonusGF.getFirstRoll() + bonusGF.getSecondRoll());
+			if(frameNumber == 10 && bonusGameFrame.getFirstRoll() == 10){
+				return (byte) (bonusGameFrame.getFirstRoll() + bonusGameFrame.getSecondRoll());
 			}
-			else if(bonusGF.getFirstRoll() == 10){
-				GameFrame bonusGFX = Main.gameBoard.get((byte)(frameNumber+1));
-				return (byte) (bonusGF.getFirstRoll() + bonusGFX.getFirstRoll());
+			else if(bonusGameFrame.getFirstRoll() == 10){
+				GameFrame bonusGameFrameXtra = Main.gameBoard.get((byte)(frameNumber+1));
+				return (byte) (bonusGameFrame.getFirstRoll() + bonusGameFrameXtra.getFirstRoll());
 			}
 			else{
-			return (byte) (bonusGF.getFirstRoll() + bonusGF.getSecondRoll());}
+			return (byte) (bonusGameFrame.getFirstRoll() + bonusGameFrame.getSecondRoll());}
 		}
 		else{
-			return (byte) (bonusGF.getFirstRoll());
+			return (byte) (bonusGameFrame.getFirstRoll());
 		}
 		
 	}
