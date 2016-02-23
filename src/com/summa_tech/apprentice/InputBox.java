@@ -8,7 +8,7 @@ import java.util.Scanner;
  * @author Justin Chilleo
  *
  *         This class will take the input array list, and begin sorting the
- *         values into their respective frames.
+ *         values into their respective framess.
  */
 public class InputBox {
 
